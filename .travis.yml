@@ -22,6 +22,7 @@ install:
 branches:
   only:
     - master # Do not build PR branches
+    - fix-windows-tests
     - /^v\d+\.\d+\.\d+$/ # Ensure to build release tags
 
 env:
