@@ -260,7 +260,7 @@ describe('AWS - API Gateway Integration Test', function() {
   });
 
   // NOTE: this test should  be at the very end because we're using an external REST API here
-  describe('when using an existing REST API with stage specific configuration', () => {
+  describe('when using an existing REST API', () => {
     before(() => {
       const serverless = readYamlFile(serverlessFilePath);
       // enable Logs, Tags and Tracing
@@ -268,16 +268,6 @@ describe('AWS - API Gateway Integration Test', function() {
         apiGateway: {
           restApiId,
           restApiRootResourceId,
-        },
-        tags: {
-          foo: 'bar',
-          baz: 'qux',
-        },
-        tracing: {
-          apiGateway: true,
-        },
-        logs: {
-          restApi: true,
         },
       });
       writeYamlFile(serverlessFilePath, serverless);
